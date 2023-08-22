@@ -9,7 +9,7 @@ const Menu = () => {
     const intelorances = ["Gluten", "Produits laitiers", "Oeuf", "Arachide", "Fruits de mer", "Blé"];
 
     return (
-        <ul className='list-inline mb-0'>
+        <ul className='list-inline d-flex mb-0 menu'>
             <Item name="Catégorie" elements={categories}/>
             <Item name="Thémathique" elements={thematics}/>
             <Item name="Saison" elements={seasons}/>

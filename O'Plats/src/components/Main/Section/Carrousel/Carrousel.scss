@@ -1,0 +1,13 @@
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.carousel-indicators {
+    display: none;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+}

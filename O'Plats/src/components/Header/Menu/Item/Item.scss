@@ -1,0 +1,25 @@
+.accordion {
+
+    :active {
+        background: none !important;
+    }
+
+    :focus {
+    border-color: transparent !important;
+    box-shadow: none !important;
+    }
+
+    .accordion-item {
+        border: 0 !important;
+    }
+
+    .accordion-header {
+        :hover {
+            color: green;
+        }
+    }
+}
+
+
+
+
