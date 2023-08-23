@@ -13,7 +13,7 @@ export const initialState = {
       case SAVE_RECIPES:
       return {
         ...state,
-        section1: action.recipes,
+        [action.section]: action.recipes,
         isRecipesLoaded: true
       };
 

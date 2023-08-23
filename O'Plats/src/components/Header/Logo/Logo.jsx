@@ -1,11 +1,14 @@
 import './Logo.scss';
 import logo from '../../../assets/img/logo_oplats.png';
+import { NavLink } from 'react-router-dom';
 
 const Logo = () => {
-    return(
+    return (
         <div className="logo">
-            <img src={logo} alt="logo-oplats" className="img-fluid"></img>
-        </div> 
+            <NavLink to="/">
+                <img src={logo} alt="logo-oplats" className="img-fluid"></img>
+            </NavLink>
+        </div>
     )
 };
 
