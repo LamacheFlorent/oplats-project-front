@@ -31,7 +31,7 @@ const App = () => {
     return(
         <div className="app">
            <Header />
-           <SignIn />
+           {/* <SignIn /> */}
            <Main />
            <Footer />
         </div>

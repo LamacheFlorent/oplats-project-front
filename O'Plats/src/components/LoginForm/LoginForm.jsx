@@ -1,7 +1,7 @@
 import './LoginForm.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { changeLoginField } from '../../actions/user';
+import { changeLoginField, submitLogin } from '../../actions/user';
 
 const SignIn = () => {
 
@@ -9,7 +9,7 @@ const SignIn = () => {
 
     return (
         <div className='sign-in'>
-            <form className="form">
+            <form className="form" onSubmit={(event) =>{ event.preventDefault(); dispatch(submitLogin())}}>
                 <p className="form-title">Sign in to your account</p>
                 <div className="input-container">
                     <input type="email" placeholder="Enter email" onChange={(event) => dispatch(changeLoginField(event.target.value, "email"))}/>

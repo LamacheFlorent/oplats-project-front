@@ -1,6 +1,5 @@
 import './Item.scss';
 import Element from './Element/Element';
-import Accordion from 'react-bootstrap/Accordion';
 
 const Item = ({ name, elements, params }) => {
     return (
