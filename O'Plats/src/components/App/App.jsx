@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipesSection1, fetchRecipesSection2, fetchRecipesSection3 } from '../../actions/recipes';
 import LoginForm from '../LoginForm/LoginForm';
 import Results from '../Results/Results';
+import Profile from '../Profile/Profile';
 
 const App = () => {
 
@@ -36,7 +37,8 @@ const App = () => {
            <Header />
            {(isOpen && !isLogged) && <LoginForm />}
            {/* <Main /> */}
-           <Results />
+           {/* <Results /> */}
+           <Profile />
            <Footer />
         </div>
     )

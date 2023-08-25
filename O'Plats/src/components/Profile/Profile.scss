@@ -1,0 +1,12 @@
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8em;
+    padding: 0 10em;
+    margin-bottom: 5em;
+
+    h1 {
+        font-weight: bolder;
+    }
+}

@@ -1,4 +1,4 @@
-import { CHANGE_LOGIN_FIELD, HANDLE_SUCCESSFUL_LOGIN, OPEN_LOGIN_FORM } from '../actions/user';
+import { CHANGE_LOGIN_FIELD, HANDLE_SUCCESSFUL_LOGIN, OPEN_LOGIN_FORM, LOGOUT, CLOSE_LOGIN_FORM } from '../actions/user';
 
 export const initialState = {
   logged: false,
@@ -12,17 +12,6 @@ export const initialState = {
 const userReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_LOGIN_FIELD:
-      /* if (action.identifier === 'email') {
-        return {
-          ...state,
-          email: action.newValue,
-        };
-      }
-      return {
-        ...state,
-        password: action.newValue,
-      }; */
-
       return {
         ...state,
         [action.identifier]: action.newValue
@@ -44,11 +33,21 @@ const userReducer = (state = initialState, action = {}) => {
         isLoginFormOpen: true
       };
 
-    case 'CLOSE_LOGIN_FORM':
+    case CLOSE_LOGIN_FORM:
       return {
         ...state,
         isLoginFormOpen: false
       };
+
+    case LOGOUT:
+      return {
+        ...state,
+        logged: false,
+        email: '',
+        password: '',
+        nickname: '',
+        token: ''
+      }
 
     default:
       return state;

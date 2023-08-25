@@ -17,7 +17,8 @@ const authMiddleware = (store) => (next) => (action) => {
           store.dispatch(
             handleSuccessfulLogin(response.data.pseudo, response.data.token)
           );
-          // store.dispatch(fetchFavoriteRecipes());
+          
+          store.dispatch(fetchFavoriteRecipes());
         })
         .catch((error) => {
           console.log(error);
