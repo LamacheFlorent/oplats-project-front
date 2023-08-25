@@ -1,10 +1,11 @@
-import { SAVE_RECIPES } from '../actions/recipes';
+import { CHANGE_SEARCH_INPUT, SAVE_RECIPES } from '../actions/recipes';
 
 export const initialState = {
-  dataRecipes: [],
+  inputSearch: '',
   section1: [],
   section2: [],
   section3: [],
+  searchResults: [],
   isRecipesLoaded: false,
   };
   
@@ -13,9 +14,16 @@ export const initialState = {
       case SAVE_RECIPES:
       return {
         ...state,
-        [action.section]: action.recipes,
+        [action.identifier]: action.recipes,
+        // searchResults: action.recipes,
         isRecipesLoaded: true
       };
+
+      case CHANGE_SEARCH_INPUT:
+        return {
+          ...state,
+          inputSearch: action.newValue
+        }
 
       default:
         return state;

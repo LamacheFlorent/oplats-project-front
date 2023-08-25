@@ -1,4 +1,4 @@
-import { CHANGE_LOGIN_FIELD, HANDLE_SUCCESSFUL_LOGIN } from '../actions/user';
+import { CHANGE_LOGIN_FIELD, HANDLE_SUCCESSFUL_LOGIN, OPEN_LOGIN_FORM } from '../actions/user';
 
 export const initialState = {
   logged: false,
@@ -6,6 +6,7 @@ export const initialState = {
   password: '',
   nickname: '',
   token: '',
+  isLoginFormOpen: false,
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -35,6 +36,18 @@ const userReducer = (state = initialState, action = {}) => {
         token: action.token,
         email: '',
         password: '',
+      };
+
+    case OPEN_LOGIN_FORM:
+      return {
+        ...state,
+        isLoginFormOpen: true
+      };
+
+    case 'CLOSE_LOGIN_FORM':
+      return {
+        ...state,
+        isLoginFormOpen: false
       };
 
     default:

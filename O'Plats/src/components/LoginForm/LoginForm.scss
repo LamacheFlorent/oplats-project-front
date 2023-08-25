@@ -23,6 +23,7 @@
         font-weight: 600;
         text-align: center;
         color: #000;
+        margin-top: 30px;
     }
 
     .input-container {
@@ -76,6 +77,15 @@
 
     .signup-link a {
         text-decoration: underline;
+    }
+
+    .close-form {
+        margin: 0 !important;
+        border: 0 !important;
+        background-color: transparent;
+        position: absolute;
+        right: 5px;
+        top: 5px;
     }
 
 }

@@ -2,13 +2,11 @@ import axios from 'axios';
 import { SUBMIT_LOGIN, handleSuccessfulLogin } from '../actions/user';
 // import { fetchFavoriteRecipes } from '../actions/recipes';
 
-const baseUrl = '';
-
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case SUBMIT_LOGIN:
       axios
-        .post(`${baseUrl}/login`,
+        .post('/api/login',
           {
             email: store.getState().user.email,
             password: store.getState().user.password,
