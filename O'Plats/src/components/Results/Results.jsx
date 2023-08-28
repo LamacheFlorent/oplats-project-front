@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import MainResults from './MainResults/MainResults';
 import PaginationResults from './Pagination/Pagination';
 import Loader from '../Loader/Loader';
+import NotFound from '../NotFound/NotFound';
 
 const Results = () => {
     const resultName = useSelector((state) => state.recipes.inputSearch);
@@ -25,6 +26,7 @@ const Results = () => {
         <div className='results'>
             <h1>{`Résultats correspondant à la recherche ${resultName} :`}</h1>
             {!isRecipesLoaded && <Loader />}
+            {searchResults.length === 0 && <NotFound />}
             <MainResults results={visibleResults}/>
             <PaginationResults
                 totalItems={searchResults.length}
