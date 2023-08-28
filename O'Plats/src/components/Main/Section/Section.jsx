@@ -1,12 +1,12 @@
-import Carrousel from './Carrousel/Carrousel';
+import Slide from './Slide/Slide';
 import Category from './Category/Category';
 import './Section.scss';
 
-const Section = ({name}) => {
+const Section = ({name, articles}) => {
     return (
         <div className='section'>
             <Category name={name} />
-            <Carrousel />
+            <Slide articles={articles}/>
         </div>
     )
 };

@@ -1,6 +1,7 @@
 export const CHANGE_LOGIN_FIELD = 'CHANGE_LOGIN_FIELD';
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const HANDLE_SUCCESSFUL_LOGIN = 'HANDLE_SUCCESSFUL_LOGIN';
+export const HANDLE_ERROR_CONNEXION = 'HANDLE_ERROR_CONNEXION';
 export const OPEN_LOGIN_FORM = 'OPEN_LOGIN_FORM';
 export const CLOSE_LOGIN_FORM = 'CLOSE_LOGIN_FORM';
 export const LOGOUT = 'LOGOUT';
@@ -31,4 +32,8 @@ export const closeLoginForm = () => ({
 
 export const logOut = () => ({
   type: LOGOUT
+});
+
+export const handleErrorConnexion = () => ({
+  type: HANDLE_ERROR_CONNEXION
 });

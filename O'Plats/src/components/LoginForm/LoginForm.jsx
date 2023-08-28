@@ -2,11 +2,12 @@ import './LoginForm.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeLoginField, closeLoginForm, submitLogin } from '../../actions/user';
+import ErrorMessage from './ErrorMessage/ErrorMessage';
 
 const LoginForm = () => {
 
     const dispatch = useDispatch();
-    // const isOpen = useSelector((state) => state.user.isLoginFormOpen);
+    const error = useSelector((state) => state.user.errorConnexion);
 
     return (
         <div className='sign-in'>
@@ -26,10 +27,10 @@ const LoginForm = () => {
                 <button type="submit" className="submit">
                     Sign in
                 </button>
-
+                {error && <ErrorMessage />}
                 <p className="signup-link">
                     No account?
-                    <Link to="/register" href="">Sign up</Link>
+                    <Link to="/register" onClick={() => dispatch(closeLoginForm())}>Sign up</Link>
                 </p>
             </form>
         </div>

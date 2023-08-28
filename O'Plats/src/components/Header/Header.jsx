@@ -7,18 +7,25 @@ import InputSearch from './InputSearch/InputSearch';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 
 const Header = () => {
     return (
-        <header className="header d-flex flex-column">
-            <div className="d-flex justify-content-between align-items-center hearder-countainer">
-                <Logo />
-                <Menu />
-                <BtnConnexion />
-            </div>
-            <InputSearch />
-        </header>
+        <Container className='header' fluid>
+            <Row className='first-row'>
+                <Col><Logo /></Col>
+                <Col><Menu /></Col>
+                <Col className='btn-co'><BtnConnexion /></Col>
+            </Row>
+            <Row>
+                <InputSearch />
+            </Row>
+        </Container>
     )
 };
 

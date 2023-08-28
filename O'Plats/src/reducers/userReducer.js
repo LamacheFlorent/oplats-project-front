@@ -1,4 +1,4 @@
-import { CHANGE_LOGIN_FIELD, HANDLE_SUCCESSFUL_LOGIN, OPEN_LOGIN_FORM, LOGOUT, CLOSE_LOGIN_FORM } from '../actions/user';
+import { CHANGE_LOGIN_FIELD, HANDLE_SUCCESSFUL_LOGIN, OPEN_LOGIN_FORM, LOGOUT, CLOSE_LOGIN_FORM, HANDLE_ERROR_CONNEXION } from '../actions/user';
 
 export const initialState = {
   logged: false,
@@ -7,6 +7,7 @@ export const initialState = {
   nickname: '',
   token: '',
   isLoginFormOpen: false,
+  errorConnexion: false,
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -47,7 +48,13 @@ const userReducer = (state = initialState, action = {}) => {
         password: '',
         nickname: '',
         token: ''
-      }
+      };
+    
+    case HANDLE_ERROR_CONNEXION: 
+    return {
+      ...state,
+      errorConnexion: true
+    }
 
     default:
       return state;

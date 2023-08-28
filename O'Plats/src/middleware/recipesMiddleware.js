@@ -43,7 +43,7 @@ const recipesMiddleware = (store) => (next) => (action) => {
 
     case FETCH_RECIPES_SECTION3:
       axios
-        .get(`${baseUrl}complexSearch?query=${nameSection3}&number=100&apiKey=${APIkey}`)
+        .get(`${baseUrl}complexSearch?query=${nameSection3}&number=10&apiKey=${APIkey}`)
         .then((response) => {
           console.log(response.data.results);
           store.dispatch(saveRecipes(response.data.results, 'section3'));

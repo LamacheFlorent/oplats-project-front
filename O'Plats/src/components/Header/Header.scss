@@ -1,11 +1,20 @@
 @use '../../styles/variables' as v;
 
 .header {
+    display: flex;
+    flex-direction: column;
     gap: 3em;
-    margin-bottom: 5em;
+    margin: 0 0 5em 0;
 }
 
-.hearder-countainer {
-    padding: 0 3em;
+.first-row {
+    padding: 0;
     background-color: v.$firstColor;
+    display: flex;
+    align-items: center;
+
+    .col {
+        display: flex;
+        justify-content: center;
+    }
 }

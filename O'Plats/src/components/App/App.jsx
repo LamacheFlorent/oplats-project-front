@@ -12,13 +12,17 @@ import { fetchRecipesSection1, fetchRecipesSection2, fetchRecipesSection3 } from
 import LoginForm from '../LoginForm/LoginForm';
 import Results from '../Results/Results';
 import Profile from '../Profile/Profile';
+import Loader from '../Loader/Loader';
+import NotFound from '../NotFound/NotFound';
+import Register from '../Register/Register';
 
 const App = () => {
 
     const dispatch = useDispatch();
     const isRecipesLoaded = useSelector((state) => state.recipes.isRecipesLoaded);
     const isOpen = useSelector((state) => state.user.isLoginFormOpen);
-    const isLogged = useSelector((state) => state.user.logged)
+    const isLogged = useSelector((state) => state.user.logged);
+    const results = useSelector((state) => state.recipes.searchResults);
 
     // useEffect(() => {
     //     dispatch(fetchRecipesSection1());
@@ -32,14 +36,21 @@ const App = () => {
     //     dispatch(fetchRecipesSection3());
     //   }, []);
 
-    return(
+
+    return (
         <div className="app">
-           <Header />
-           {(isOpen && !isLogged) && <LoginForm />}
-           {/* <Main /> */}
-           {/* <Results /> */}
-           <Profile />
-           <Footer />
+            <Header />
+            {(isOpen && !isLogged) && <LoginForm />}
+            {/* {!isRecipesLoaded && <Loader />} */}
+            {/* {results && <NotFound />} */}
+            <Routes>
+                {isRecipesLoaded && <Route path='/' element={<Main />} />}
+                <Route path='/profile' element={<Profile />} />
+                <Route path='/results' element={<Results />} />
+                <Route path='/register' element={<Register />} />
+            </Routes>
+            {/* <Register /> */}
+            <Footer />
         </div>
     )
 };
