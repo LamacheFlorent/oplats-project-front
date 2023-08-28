@@ -1,9 +1,9 @@
 import './ErrorMessage.scss';
 
-const ErrorMessage = () => {
+const ErrorMessage = ({text}) => {
     return(
         <span className='error'>
-            Email ou mot de passe invalide.
+            {text}
         </span>
     )
 };

@@ -4,17 +4,18 @@ import './App.scss';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
-
-import { Route, Routes } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchRecipesSection1, fetchRecipesSection2, fetchRecipesSection3 } from '../../actions/recipes';
 import LoginForm from '../LoginForm/LoginForm';
 import Results from '../Results/Results';
 import Profile from '../Profile/Profile';
 import Loader from '../Loader/Loader';
 import NotFound from '../NotFound/NotFound';
 import Register from '../Register/Register';
+
+import { Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRecipesSection1, fetchRecipesSection2, fetchRecipesSection3 } from '../../actions/recipes';
+
 
 const App = () => {
 
@@ -40,16 +41,15 @@ const App = () => {
     return (
         <div className="app">
             <Header />
-            {(isOpen && !isLogged) && <LoginForm />}
+            {(isOpen) && <LoginForm />}
             {/* {!isRecipesLoaded && <Loader />} */}
             {/* {results && <NotFound />} */}
             <Routes>
-                {isRecipesLoaded && <Route path='/' element={<Main />} />}
+                <Route path='/' element={<Main />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/results' element={<Results />} />
                 <Route path='/register' element={<Register />} />
             </Routes>
-            {/* <Register /> */}
             <Footer />
         </div>
     )

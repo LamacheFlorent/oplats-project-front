@@ -27,7 +27,7 @@ const LoginForm = () => {
                 <button type="submit" className="submit">
                     Sign in
                 </button>
-                {error && <ErrorMessage />}
+                {error && <ErrorMessage text="Email ou mot de passe invalide."/>}
                 <p className="signup-link">
                     No account?
                     <Link to="/register" onClick={() => dispatch(closeLoginForm())}>Sign up</Link>
