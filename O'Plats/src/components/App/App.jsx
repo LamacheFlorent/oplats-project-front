@@ -8,13 +8,12 @@ import LoginForm from '../LoginForm/LoginForm';
 import Results from '../Results/Results';
 import Profile from '../Profile/Profile';
 import Loader from '../Loader/Loader';
-import NotFound from '../NotFound/NotFound';
 import Register from '../Register/Register';
 
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRecipesSection1, fetchRecipesSection2, fetchRecipesSection3 } from '../../actions/recipes';
+import { fetchRecipesSection1, fetchRecipesSection2, fetchRecipesSection3, fetchRecipesGender } from '../../actions/recipes';
 
 
 const App = () => {
@@ -23,7 +22,6 @@ const App = () => {
     const isRecipesLoaded = useSelector((state) => state.recipes.isRecipesLoaded);
     const isOpen = useSelector((state) => state.user.isLoginFormOpen);
     const isLogged = useSelector((state) => state.user.logged);
-    const results = useSelector((state) => state.recipes.searchResults);
 
     // useEffect(() => {
     //     dispatch(fetchRecipesSection1());
@@ -41,13 +39,13 @@ const App = () => {
     return (
         <div className="app">
             <Header />
-            {(isOpen) && <LoginForm />}
+            {(isOpen && !isLogged) && <LoginForm />}
             {/* {!isRecipesLoaded && <Loader />} */}
-            {/* {results && <NotFound />} */}
             <Routes>
                 <Route path='/' element={<Main />} />
                 <Route path='/profile' element={<Profile />} />
-                <Route path='/results' element={<Results />} />
+                <Route path='/results/:slug' element={<Results />} />
+                <Route path='/:gender/:slug' element={<Results />} />
                 <Route path='/register' element={<Register />} />
             </Routes>
             <Footer />

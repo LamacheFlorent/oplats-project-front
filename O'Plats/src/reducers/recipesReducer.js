@@ -28,7 +28,7 @@ const recipesReducer = (state = initialState, action = {}) => {
     case SAVE_FAVORITE_RECIPES:
       return {
         ...state,
-        favorites: action.favoriteRecipes,
+        favorites: action.favoriteRecipes
       };
 
     default:

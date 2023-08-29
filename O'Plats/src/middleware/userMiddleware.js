@@ -5,14 +5,14 @@ import { fetchFavoriteRecipes } from '../actions/recipes';
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case SUBMIT_LOGIN:
-      axios.post('http://localhost:8000/api/users',
+      axios.post('http://localhost:8000/api/login_check',
         {
           email: store.getState().user.email,
           password: store.getState().user.password,
         }
       )
         .then((response) => {
-          // console.log(response);
+          // console.log(response.data);
           store.dispatch(handleSuccessfulLogin(response.data.pseudo, response.data.token));
           store.dispatch(fetchFavoriteRecipes());
         })
@@ -34,7 +34,7 @@ const authMiddleware = (store) => (next) => (action) => {
           }
         )
           .then((response) => {
-            // console.log(response);
+            // console.log(response.data);
             store.dispatch(handleSuccessfulLogin(response.data.pseudo, response.data.token));
           })
           .catch((error) => {

@@ -6,7 +6,9 @@ export const SAVE_RECIPES = 'SAVE_RECIPES';
 export const CHANGE_SEARCH_INPUT = 'CHANGE_SEARCH_INPUT';
 export const FETCH_FAVORITE_RECIPES = 'FETCH_FAVORITE_RECIPES';
 export const SAVE_FAVORITE_RECIPES = 'SAVE_FAVORITE_RECIPES';
+export const FETCH_RECIPES_GENDER = 'FETCH_RECIPES_GENDER';
 
+// fonction qui 
 export const fetchRecipesSection1 = () => ({
     type: FETCH_RECIPES_SECTION1
   });
@@ -41,4 +43,10 @@ export const fetchRecipesSection1 = () => ({
   export const saveFavoriteRecipes = (favoriteRecipes) => ({
     type: SAVE_FAVORITE_RECIPES,
     favoriteRecipes
+  });
+
+  export const fetchRecipesGender = (gender, value) => ({
+    type: FETCH_RECIPES_GENDER,
+    gender,
+    value
   });
