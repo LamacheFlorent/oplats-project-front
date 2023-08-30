@@ -4,4 +4,3 @@
 - React Redux
 - Axios
 - Bootstrap
-- Test !

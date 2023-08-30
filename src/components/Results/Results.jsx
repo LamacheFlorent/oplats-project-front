@@ -1,5 +1,5 @@
 import './Results.scss';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import MainResults from './MainResults/MainResults';
 import PaginationResults from './Pagination/Pagination';
@@ -11,7 +11,6 @@ const Results = () => {
     const searchResults = useSelector((state) => state.recipes.searchResults);
     const isRecipesLoaded = useSelector((state) => state.recipes.isRecipesLoaded);
     const [currentPage, setCurrentPage] = useState(1);
-    const dispatch = useDispatch();
     const itemsPerPage = 9;
 
     // pagination

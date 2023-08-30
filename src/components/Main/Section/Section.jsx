@@ -1,12 +1,12 @@
-import Slide from './Slide/Slide';
+import Articles from './Articles/Articles';
 import Category from './Category/Category';
 import './Section.scss';
 
-const Section = ({name, articles}) => {
+const Section = ({ name, articles }) => {
     return (
         <div className='section'>
             <Category name={name} />
-            <Slide articles={articles}/>
+            <Articles articles={articles}/>
         </div>
     )
 };

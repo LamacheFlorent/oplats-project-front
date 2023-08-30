@@ -23,17 +23,17 @@ const App = () => {
     const isOpen = useSelector((state) => state.user.isLoginFormOpen);
     const isLogged = useSelector((state) => state.user.logged);
 
-    // useEffect(() => {
-    //     dispatch(fetchRecipesSection1());
-    //   }, []);
+    useEffect(() => {
+        dispatch(fetchRecipesSection1());
+      }, []);
 
-    //   useEffect(() => {
-    //     dispatch(fetchRecipesSection2());
-    //   }, []);
+      useEffect(() => {
+        dispatch(fetchRecipesSection2());
+      }, []);
 
-    //   useEffect(() => {
-    //     dispatch(fetchRecipesSection3());
-    //   }, []);
+      useEffect(() => {
+        dispatch(fetchRecipesSection3());
+      }, []);
 
 
     return (
