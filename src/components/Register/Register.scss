@@ -1,0 +1,10 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4em;
+
+    .title {
+        font-size: 60px;
+    }
+}
