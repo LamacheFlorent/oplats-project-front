@@ -25,12 +25,11 @@ const authMiddleware = (store) => (next) => (action) => {
     case SUBMIT_REGISTER:
       if (store.getState().user.password === store.getState().user.confirm_password) {
         store.dispatch(handleErrorRegister(false));
-        axios.post('http://localhost:8000/api/users',
+        axios.post('http://localhost:8000/api/users/register',
           {
-            nickname: store.getState().user.nickname,
+            // nickname: store.getState().user.nickname,
             email: store.getState().user.email,
-            password: store.getState().user.password,
-            confirm_password: store.getState().user.confirm_password
+            password: store.getState().user.password
           }
         )
           .then((response) => {

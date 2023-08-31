@@ -1,0 +1,20 @@
+@use '../../../../styles/variables' as v;
+
+a {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 9px;
+
+    .button_more {
+        padding: 0;
+        border: 0;
+        background-color: white;
+        // font-size: 20px;
+    }
+}
+
+a, .button_more {
+    color: v.$firstColor;
+    font-size: 18px;
+}

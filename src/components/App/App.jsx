@@ -27,13 +27,13 @@ const App = () => {
         dispatch(fetchRecipesSection1());
       }, []);
 
-      useEffect(() => {
-        dispatch(fetchRecipesSection2());
-      }, []);
+    //   useEffect(() => {
+    //     dispatch(fetchRecipesSection2());
+    //   }, []);
 
-      useEffect(() => {
-        dispatch(fetchRecipesSection3());
-      }, []);
+    //   useEffect(() => {
+    //     dispatch(fetchRecipesSection3());
+    //   }, []);
 
 
     return (
