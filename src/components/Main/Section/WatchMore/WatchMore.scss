@@ -1,12 +1,12 @@
 @use '../../../../styles/variables' as v;
 
-a {
+.link-more  {
     display: flex;
     justify-content: end;
     align-items: center;
     gap: 9px;
 
-    .button_more {
+    .button-more {
         padding: 0;
         border: 0;
         background-color: white;
@@ -14,7 +14,7 @@ a {
     }
 }
 
-a, .button_more {
+.link-more, .button-more {
     color: v.$firstColor;
     font-size: 18px;
 }

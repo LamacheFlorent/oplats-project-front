@@ -8,7 +8,7 @@ export const FETCH_FAVORITE_RECIPES = 'FETCH_FAVORITE_RECIPES';
 export const SAVE_FAVORITE_RECIPES = 'SAVE_FAVORITE_RECIPES';
 export const FETCH_RECIPES_GENDER = 'FETCH_RECIPES_GENDER';
 
-// fonctions (sections 1 2 3) qui fetch les recettes de l'api en fonctions des endpoint 
+// fonctions (sections 1 2 3) qui fetch les recettes de l'api par 3 en fonctions des endpoint pour s'afficher dans le HomePage
 export const fetchRecipesSection1 = () => ({
     type: FETCH_RECIPES_SECTION1
   });
@@ -21,9 +21,11 @@ export const fetchRecipesSection1 = () => ({
     type: FETCH_RECIPES_SECTION3
   });
 
-  //fonction qui fetch les recettes de l'api suite à une recherche dans l'input du formulaire de recherche (avec mot clé)
-  export const fetchRecipesSearch = () => ({
-    type: FETCH_RECIPES_SEARCH
+  //fonction qui fetch les recettes de l'api suite à une recherche dans l'input du formulaire de recherche (avec mot un clé)
+  // ou en faisant "voir plus" pour les recettes proposées dans les sections
+  export const fetchRecipesSearch = (value) => ({
+    type: FETCH_RECIPES_SEARCH,
+    value
   });
 
   // fonction qui récupère les recettes (response.data.results) après le fetch selon un identifiant (appelée dans les fonctions fetch)

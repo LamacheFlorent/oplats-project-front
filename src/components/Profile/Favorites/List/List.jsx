@@ -1,4 +1,4 @@
-import Article from '../../../Main/Section/Article/Article';
+import Article from '../../../Main/Section/Articles/Article/Article';
 import './List.scss';
 import { useSelector } from 'react-redux';
 

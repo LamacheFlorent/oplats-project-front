@@ -4,4 +4,10 @@
     flex-direction: column;
     gap: 7em;
     margin-top: 7em;
+
+    .section {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+    }
 }

@@ -21,7 +21,7 @@ const recipesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_RECIPES_SECTION1:
       axios
-        .get(`${baseUrl}complexSearch?query=${nameSection1}&number=100&apiKey=${APIkey}`)
+        .get(`${baseUrl}complexSearch?query=${nameSection1}&number=3&apiKey=${APIkey}`)
         .then((response) => {
           console.log(response.data.results);
           store.dispatch(saveRecipes(response.data.results, 'section1'));
@@ -31,21 +31,21 @@ const recipesMiddleware = (store) => (next) => (action) => {
         });
       break;
 
-    case FETCH_RECIPES_SECTION2:
-      axios
-        .get(`${baseUrl}complexSearch?query=${nameSection2}&number=100&apiKey=${APIkey}`)
-        .then((response) => {
-          console.log(response.data.results);
-          store.dispatch(saveRecipes(response.data.results, 'section2'));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      break;
+    // case FETCH_RECIPES_SECTION2:
+    //   axios
+    //     .get(`${baseUrl}complexSearch?query=${nameSection2}&number=3&apiKey=${APIkey}`)
+    //     .then((response) => {
+    //       console.log(response.data.results);
+    //       store.dispatch(saveRecipes(response.data.results, 'section2'));
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    //   break;
 
     case FETCH_RECIPES_SECTION3:
       axios
-        .get(`${baseUrl}complexSearch?query=${nameSection3}&number=10&apiKey=${APIkey}`)
+        .get(`${baseUrl}complexSearch?query=${nameSection3}&number=3&apiKey=${APIkey}`)
         .then((response) => {
           console.log(response.data.results);
           store.dispatch(saveRecipes(response.data.results, 'section3'));
@@ -57,7 +57,7 @@ const recipesMiddleware = (store) => (next) => (action) => {
 
     case FETCH_RECIPES_SEARCH:
       axios
-        .get(`${baseUrl}complexSearch?query=${store.getState().recipes.inputSearch}&number=100&apiKey=${APIkey}`)
+        .get(`${baseUrl}complexSearch?query=${action.value}&number=100&apiKey=${APIkey}`)
         .then((response) => {
           console.log(response.data.results);
           store.dispatch(saveRecipes(response.data.results, 'searchResults'));

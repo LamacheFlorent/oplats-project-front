@@ -1,5 +1,5 @@
 import './Articles.scss';
-import Article from '../Article/Article';
+import Article from './Article/Article';
 
 
 const Articles = ({ articles }) => {
