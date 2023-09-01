@@ -8,6 +8,7 @@ import {
   FETCH_FAVORITE_RECIPES,
   saveRecipes,
   FETCH_RECIPES_GENDER,
+  ADD_RECIPE_FAVORITE,
 } from '../actions/recipes';
 
 const APIkey = 'b7dc8a490af6435f8132de0a24dfcd71';
@@ -70,20 +71,20 @@ const recipesMiddleware = (store) => (next) => (action) => {
     case FETCH_RECIPES_GENDER:
       const { gender, value } = action
       axios
-      .get(`${baseUrl}complexSearch?${gender}=${value}&number=100&apiKey=${APIkey}`)
-      .then((response) => {
-        console.log(response.data.results);
-        store.dispatch(saveRecipes(response.data.results, 'searchResults'));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    break;
+        .get(`${baseUrl}complexSearch?${gender}=${value}&number=100&apiKey=${APIkey}`)
+        .then((response) => {
+          console.log(response.data.results);
+          store.dispatch(saveRecipes(response.data.results, 'searchResults'));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
 
     // case FETCH_FAVORITE_RECIPES:
     //   axios.get('',
     //     {
-    //       headers: {
+    //       header: {
     //         // nom du header: valeur
     //         Authorization: `Bearer ${store.getState().user.token}`,
     //       },
@@ -92,6 +93,23 @@ const recipesMiddleware = (store) => (next) => (action) => {
     //     .then((response) => {
     //       // console.log(response);
     //       store.dispatch(saveFavoriteRecipes(response.data.favorites));
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    //   break;
+
+    // case ADD_RECIPE_FAVORITE:
+      // const { idRecipe } = action
+    //   axios.post('',
+    //     {
+    //       header: {
+    //         Authorization: `Bearer ${store.getState().user.token}`,
+    //       },
+    //     }
+    //   )
+    //     .then((response) => {
+    //       // console.log(response);
     //     })
     //     .catch((error) => {
     //       console.log(error);

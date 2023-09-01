@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { fetchRecipesSearch } from "../../actions/recipes";
+import Loader from '../Loader/Loader';
 
 const SearchResults = () => {
   const params = useParams();
   const dispatch = useDispatch();
+  const isRecipesLoaded = useSelector((state) => state.recipes.isRecipesLoaded);
 
   useEffect(() => {
     dispatch(fetchRecipesSearch(params.slug));
