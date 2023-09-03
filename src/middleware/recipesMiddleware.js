@@ -69,9 +69,8 @@ const recipesMiddleware = (store) => (next) => (action) => {
       break;
 
     case FETCH_RECIPES_GENDER:
-      const { gender, value } = action
       axios
-        .get(`${baseUrl}complexSearch?${gender}=${value}&number=100&apiKey=${APIkey}`)
+        .get(`${baseUrl}complexSearch?${action.gender}=${action.value}&number=100&apiKey=${APIkey}`)
         .then((response) => {
           console.log(response.data.results);
           store.dispatch(saveRecipes(response.data.results, 'searchResults'));
