@@ -1,9 +1,10 @@
 import './Category.scss';
 
-const Category = ({name}) => {
+const Category = ({name, icone}) => {
     return(
         <h2 className='gategory-name'>
             {name}
+            {icone}
         </h2>
     )
 };
