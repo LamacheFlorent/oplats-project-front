@@ -12,6 +12,7 @@ import GenderResults from '../GenderResults/GenderResults';
 
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import RecipePage from '../RecipePage/RecipePage';
 
 
 const App = () => {
@@ -23,13 +24,14 @@ const App = () => {
         <div className="app">
             <Header />
             {(isOpen && !isLogged) && <LoginForm />}
-            <Routes>
+            <RecipePage />
+            {/* <Routes>
                 <Route path='/' element={<Main />} />
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/results/:slug' element={<SearchResults />} />
                 <Route path='/:gender/:slug' element={<GenderResults />} />
                 <Route path='/register' element={<Register />} />
-            </Routes>
+            </Routes> */}
             <Footer />
         </div>
     )

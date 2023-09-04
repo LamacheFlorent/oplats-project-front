@@ -7,7 +7,8 @@ export const CHANGE_SEARCH_INPUT = 'CHANGE_SEARCH_INPUT';
 export const FETCH_FAVORITE_RECIPES = 'FETCH_FAVORITE_RECIPES';
 export const SAVE_FAVORITE_RECIPES = 'SAVE_FAVORITE_RECIPES';
 export const FETCH_RECIPES_GENDER = 'FETCH_RECIPES_GENDER';
-export const ADD_RECIPE_FAVORITE = 'ADD_RECIPE_FAVORITE';
+export const ADD_FAVORITE_RECIPE = 'ADD_FAVORITE_RECIPE';
+export const CHANGE_COMMENT_INPUT = 'CHANGE_COMMENT_INPUT';
 
 // fonctions (sections 1 2 3) qui fetch les recettes de l'api par 3 en fonctions des endpoint pour s'afficher dans le HomePage
 export const fetchRecipesSection1 = () => ({
@@ -54,14 +55,19 @@ export const fetchFavoriteRecipes = () => ({
   type: FETCH_FAVORITE_RECIPES,
 });
 
-// fonction qui récupère les recettes favotites de l'utilisateur connecté
+// fonction qui récupère les recettes favotites de l'utilisateur connecté par son code api (id de la recette)
 export const saveFavoriteRecipes = (favoriteRecipes) => ({
   type: SAVE_FAVORITE_RECIPES,
   favoriteRecipes
 });
 
 // fonction qui permet d'ajouter une recette dans la liste de favoris
-export const addRecipesFavorite = (idRecipe) => ({
-  type: ADD_RECIPE_FAVORITE,
+export const addFavoriteRecipe = (idRecipe) => ({
+  type: ADD_FAVORITE_RECIPE,
   idRecipe
-})
+});
+
+export const changeCommentInput = (newValue) => ({
+  type: CHANGE_COMMENT_INPUT,
+  newValue
+});

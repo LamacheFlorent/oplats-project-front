@@ -1,0 +1,13 @@
+@use '../../../styles/variables' as v;
+
+.add {
+
+    .btn-add {
+        border-radius: 50px;
+        display: flex;
+        gap: 5px;
+        background-color: v.$firstColor;
+        border: 0;
+        color: white;
+    }
+}

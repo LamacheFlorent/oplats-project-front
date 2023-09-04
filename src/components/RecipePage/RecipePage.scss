@@ -1,0 +1,24 @@
+.recipe-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15em;
+    gap: 20px;
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .description {
+        width: 100%;
+        margin-top: 5em;
+        // gap: 15px;
+    }
+
+    .vertical-line {
+        border-left: 1px solid #000;
+        height: 100px;
+      }
+      
+}

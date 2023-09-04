@@ -1,4 +1,4 @@
-import { CHANGE_SEARCH_INPUT, SAVE_RECIPES, SAVE_FAVORITE_RECIPES } from '../actions/recipes';
+import { CHANGE_SEARCH_INPUT, SAVE_RECIPES, SAVE_FAVORITE_RECIPES, CHANGE_COMMENT_INPUT } from '../actions/recipes';
 
 export const initialState = {
   inputSearch: '',
@@ -8,6 +8,7 @@ export const initialState = {
   searchResults: [],
   isRecipesLoaded: false,
   favorites: [],
+  inputComment: '',
 };
 
 const recipesReducer = (state = initialState, action = {}) => {
@@ -30,6 +31,12 @@ const recipesReducer = (state = initialState, action = {}) => {
         ...state,
         favorites: action.favoriteRecipes
       };
+
+    case CHANGE_COMMENT_INPUT: 
+      return {
+        ...state,
+        inputComment: action.newValue
+      }
 
     default:
       return state;

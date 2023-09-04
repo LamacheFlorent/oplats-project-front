@@ -8,7 +8,7 @@ import {
   FETCH_FAVORITE_RECIPES,
   saveRecipes,
   FETCH_RECIPES_GENDER,
-  ADD_RECIPE_FAVORITE,
+  ADD_FAVORITE_RECIPE,
 } from '../actions/recipes';
 
 const APIkey = 'b7dc8a490af6435f8132de0a24dfcd71';
@@ -98,7 +98,7 @@ const recipesMiddleware = (store) => (next) => (action) => {
     //     });
     //   break;
 
-    // case ADD_RECIPE_FAVORITE:
+    // case ADD_FAVORITE_RECIPE:
       // const { idRecipe } = action
     //   axios.post('',
     //     {
