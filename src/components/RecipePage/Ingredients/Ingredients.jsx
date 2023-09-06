@@ -8,7 +8,7 @@ const Ingredients = ({ingredients}) => {
             <ul className='list-ingredients'>
                 {ingredients.map((ingredient, index) => {
                     return(
-                        <li key={index}><span>Ingredient {index + 1} :</span> {ingredient.name.charAt(0).toUpperCase() + ingredient.name.slice(1)}</li>
+                        <li key={index}><span>Ingredient {index + 1} :</span> {ingredient.original}</li>
                     )
                 })}
             </ul>

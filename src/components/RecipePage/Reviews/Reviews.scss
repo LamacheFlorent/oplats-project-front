@@ -1,3 +1,5 @@
+@use '../../../styles/variables' as v;
+
 .reviews {
     width: 100%;
     margin-top: 3em;
@@ -8,9 +10,19 @@
 
     .add-comment {
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .write-comment {
+            width: 80%;
+        }
+    
+        .btn-submit-comment {
+            border: 0;
+            background-color: v.$secondColor;
+            width: min-content;
+        }
     }
 
-    .write-comment {
-        width: 80%;
-    }
 }

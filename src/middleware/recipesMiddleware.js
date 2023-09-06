@@ -83,41 +83,42 @@ const recipesMiddleware = (store) => (next) => (action) => {
         });
       break;
 
-    // case FETCH_FAVORITE_RECIPES:
-    //   axios
-    //     .get('/api/users/me/favorites',
-    //       {
-    //         header: {
-    //           // nom du header: valeur
-    //           Authorization: `Bearer ${store.getState().user.token}`,
-    //         },
-    //       }
-    //     )
-    //     .then((response) => {
-    //       // console.log(response);
-    //       store.dispatch(saveFavoriteRecipes(response.data.favorites));
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    //   break;
+    case FETCH_FAVORITE_RECIPES:
+      axios
+        .get(`${baseUrlBDD}/users/me/favorites`,
+          {
+            headers: {
+              Authorization: `Bearer ${store.getState().user.token}`,
+            },
+          }
+        )
+        .then((response) => {
+          // console.log(response);
+          store.dispatch(saveFavoriteRecipes(response.data.favorites));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
 
-    // case ADD_FAVORITE_RECIPE:
-    //   axios
-    //     .post(`/api/favorites/add/${action.idRecipe}`,
-    //       {
-    //         header: {
-    //           Authorization: `Bearer ${store.getState().user.token}`,
-    //         },
-    //       }
-    //     )
-    //     .then((response) => {
-    //       // console.log(response);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    //   break;
+    case ADD_FAVORITE_RECIPE:
+      console.log(action.idRecipe)
+      axios
+        .get(`${baseUrlBDD}/favorites/add/${action.idRecipe}`,
+          {
+            headers: {
+              Authorization: `Bearer ${store.getState().user.token}`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log('Requête réussie ', response);
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log(store.getState().user.token)
+        });
+      break;
 
     // case REMOVE_FAVORITE_RECIPE:
     //   axios

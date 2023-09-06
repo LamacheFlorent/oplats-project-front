@@ -14,7 +14,7 @@ const Profile = () => {
         <div className='profile-page'>
             <h1>Mon Profil</h1>
             <Informations />
-            <Button className='logout' onClick={() => {dispatch(logOut()); navigate('/')}}>Deconnexion</Button>
+            <Button className='logout' variant="success" onClick={() => {dispatch(logOut()); navigate('/')}}>Deconnexion</Button>
             <Favorites />
         </div>
     )

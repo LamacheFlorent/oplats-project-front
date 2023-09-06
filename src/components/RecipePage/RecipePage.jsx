@@ -37,7 +37,7 @@ const RecipePage = () => {
             <TitleRecipe text={recipe.title}/>
             <ImgRecipe src={recipe.image}/>
             <Details time={recipe.readyInMinutes} servings={recipe.servings}/>
-            <BtnAdd />
+            <BtnAdd codeRecipe={idRecipe}/>
             <Row className='description'>
                 <Ingredients ingredients={recipe.extendedIngredients}/>
                 <Prepare steps={recipe.analyzedInstructions[0].steps}/>

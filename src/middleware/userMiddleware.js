@@ -16,7 +16,7 @@ const authMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           store.dispatch(handleSuccessfulLogin(response.data.data.nickname, response.data.data.email, response.data.token));
-          // store.dispatch(fetchFavoriteRecipes());
+          store.dispatch(fetchFavoriteRecipes());
         })
         .catch((error) => {
           console.log(error);
@@ -29,14 +29,14 @@ const authMiddleware = (store) => (next) => (action) => {
         store.dispatch(handleErrorRegister(false));
         axios.post(`${baseUrl}/users/register`,
           {
-            nickname: store.getState().user.nickname,
             email: store.getState().user.email,
-            password: store.getState().user.password
+            password: store.getState().user.password,
+            nickname: store.getState().user.nickname,
           }
         )
           .then((response) => {
-            // console.log(response.data);
-            store.dispatch(handleSuccessfulLogin(response.data.pseudo, response.data.token));
+            console.log(response.data);
+            store.dispatch(handleSuccessfulLogin(response.data.nickname, response.data.email, response.data.token));
           })
           .catch((error) => {
             console.log(error)

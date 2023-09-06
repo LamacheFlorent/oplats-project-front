@@ -6,10 +6,8 @@ import InputRegister from './InputRegister/InputRegister';
 import { useDispatch, useSelector } from 'react-redux';
 
 const FormRegister = () => {
-    const dispatch = useDispatch();7
+    const dispatch = useDispatch();
     const error = useSelector((state) => state.user.errorRegister);
-    const password = useSelector((state) => state.user.password);
-    const confirm_password = useSelector((state) => state.user.confirm_password);
 
     return (
         <form className="form" onSubmit={(event) => {event.preventDefault(); dispatch(submitRegister())}}>
@@ -17,7 +15,6 @@ const FormRegister = () => {
             <InputRegister inputType="email" labelText="Email" name="email"/>
             <InputRegister inputType="password" labelText="Password" name="password" placeholder="minimum 8 characters"/>
             <InputRegister inputType="password" labelText="Confirm password" name="confirm_password" placeholder="minimum 8 characters"/>
-            {/* {password !== confirm_password && <ErrorMessage text="Password and confirm password do not match"/>} */}
             {error && <ErrorMessage text="Password and confirm password do not match"/>}
             <BtnRegister />
         </form>

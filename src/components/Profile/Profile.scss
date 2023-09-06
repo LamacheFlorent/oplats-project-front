@@ -1,3 +1,5 @@
+@use '../../styles/variables' as v;
+
 .profile-page {
     display: flex;
     flex-direction: column;
@@ -8,5 +10,10 @@
 
     h1 {
         font-weight: bolder;
+    }
+
+    .logout {
+        background-color: v.$secondColor;
+        border: 0;
     }
 }

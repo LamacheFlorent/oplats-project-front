@@ -1,9 +1,9 @@
 import Article from '../../../Main/Section/Articles/Article/Article';
 import './List.scss';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
-const List = () => {
-    const list = useSelector((state) => state.recipes.favorites);
+const List = ({list}) => {
+    // const list = useSelector((state) => state.recipes.favorites);
     
     return(
         <div className='fav-list'>
