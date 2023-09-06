@@ -6,6 +6,7 @@ import {
   FETCH_RECIPES_SECTION3,
   FETCH_RECIPES_SEARCH,
   FETCH_FAVORITE_RECIPES,
+  saveFavoriteRecipes,
   saveRecipes,
   FETCH_RECIPES_GENDER,
   ADD_FAVORITE_RECIPE,
@@ -23,17 +24,17 @@ const nameSection3 = "summer";
 
 const recipesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case FETCH_RECIPES_SECTION1:
-      axios
-        .get(`${baseUrl}complexSearch?query=${nameSection1}&number=3&apiKey=${APIkey}`)
-        .then((response) => {
-          // console.log(response.data.results);
-          store.dispatch(saveRecipes(response.data.results, 'section1'));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      break;
+    // case FETCH_RECIPES_SECTION1:
+    //   axios
+    //     .get(`${baseUrl}complexSearch?query=${nameSection1}&number=3&apiKey=${APIkey}`)
+    //     .then((response) => {
+    //       // console.log(response.data.results);
+    //       store.dispatch(saveRecipes(response.data.results, 'section1'));
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    //   break;
 
     // case FETCH_RECIPES_SECTION2:
     //   axios
@@ -47,41 +48,41 @@ const recipesMiddleware = (store) => (next) => (action) => {
     //     });
     //   break;
 
-    case FETCH_RECIPES_SECTION3:
-      axios
-        .get(`${baseUrl}complexSearch?query=${nameSection3}&number=3&apiKey=${APIkey}`)
-        .then((response) => {
-          // console.log(response.data.results);
-          store.dispatch(saveRecipes(response.data.results, 'section3'));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      break;
+    // case FETCH_RECIPES_SECTION3:
+    //   axios
+    //     .get(`${baseUrl}complexSearch?query=${nameSection3}&number=3&apiKey=${APIkey}`)
+    //     .then((response) => {
+    //       // console.log(response.data.results);
+    //       store.dispatch(saveRecipes(response.data.results, 'section3'));
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    //   break;
 
-    case FETCH_RECIPES_SEARCH:
-      axios
-        .get(`${baseUrl}complexSearch?query=${action.value}&number=100&apiKey=${APIkey}`)
-        .then((response) => {
-          // console.log(response.data.results);
-          store.dispatch(saveRecipes(response.data.results, 'searchResults'));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      break;
+    // case FETCH_RECIPES_SEARCH:
+    //   axios
+    //     .get(`${baseUrl}complexSearch?query=${action.value}&number=100&apiKey=${APIkey}`)
+    //     .then((response) => {
+    //       // console.log(response.data.results);
+    //       store.dispatch(saveRecipes(response.data.results, 'searchResults'));
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    //   break;
 
-    case FETCH_RECIPES_GENDER:
-      axios
-        .get(`${baseUrl}complexSearch?${action.gender}=${action.value}&number=100&apiKey=${APIkey}`)
-        .then((response) => {
-          // console.log(response.data.results);
-          store.dispatch(saveRecipes(response.data.results, 'searchResults'));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      break;
+    // case FETCH_RECIPES_GENDER:
+    //   axios
+    //     .get(`${baseUrl}complexSearch?${action.gender}=${action.value}&number=100&apiKey=${APIkey}`)
+    //     .then((response) => {
+    //       // console.log(response.data.results);
+    //       store.dispatch(saveRecipes(response.data.results, 'searchResults'));
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    //   break;
 
     case FETCH_FAVORITE_RECIPES:
       axios
@@ -93,8 +94,8 @@ const recipesMiddleware = (store) => (next) => (action) => {
           }
         )
         .then((response) => {
-          // console.log(response);
-          store.dispatch(saveFavoriteRecipes(response.data.favorites));
+          console.log(response.data);
+          store.dispatch(saveFavoriteRecipes(response.data));
         })
         .catch((error) => {
           console.log(error);
@@ -102,7 +103,6 @@ const recipesMiddleware = (store) => (next) => (action) => {
       break;
 
     case ADD_FAVORITE_RECIPE:
-      console.log(action.idRecipe)
       axios
         .get(`${baseUrlBDD}/favorites/add/${action.idRecipe}`,
           {
@@ -116,7 +116,7 @@ const recipesMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          console.log(store.getState().user.token)
+          // console.log(store.getState().user.token)
         });
       break;
 

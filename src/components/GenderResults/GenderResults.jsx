@@ -7,7 +7,6 @@ import { fetchRecipesGender } from "../../actions/recipes";
 const GenderResults = () => {
   // useParam qui permet de récupérer le genre en cours et la valeur (cuisine => asian) dans l'url
   const params = useParams();
-
   const dispatch = useDispatch();
 
   // useEffect qui permet de dispatch la récupération des bonnes recettes (déclenché au changement de params)

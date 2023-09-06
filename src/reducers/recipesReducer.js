@@ -7,7 +7,7 @@ export const initialState = {
   section3: [],
   searchResults: [],
   isRecipesLoaded: false,
-  favorites: [],
+  favoritesBDD: [],
   inputComment: '',
 };
 
@@ -29,7 +29,7 @@ const recipesReducer = (state = initialState, action = {}) => {
     case SAVE_FAVORITE_RECIPES:
       return {
         ...state,
-        favorites: action.favoriteRecipes
+        favoritesBDD: action.favoriteRecipes
       };
 
     case CHANGE_COMMENT_INPUT: 
