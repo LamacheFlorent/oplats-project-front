@@ -3,7 +3,7 @@ import './List.scss';
 import { useSelector } from 'react-redux';
 
 const List = () => {
-    const list = useSelector((state) => state.recipes.searchResults);
+    const list = useSelector((state) => state.recipes.favorites);
     
     return(
         <div className='fav-list'>

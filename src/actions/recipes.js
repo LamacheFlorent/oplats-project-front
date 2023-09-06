@@ -8,7 +8,9 @@ export const FETCH_FAVORITE_RECIPES = 'FETCH_FAVORITE_RECIPES';
 export const SAVE_FAVORITE_RECIPES = 'SAVE_FAVORITE_RECIPES';
 export const FETCH_RECIPES_GENDER = 'FETCH_RECIPES_GENDER';
 export const ADD_FAVORITE_RECIPE = 'ADD_FAVORITE_RECIPE';
+export const REMOVE_FAVORITE_RECIPE = 'REMOVE_FAVORITE_RECIPE';
 export const CHANGE_COMMENT_INPUT = 'CHANGE_COMMENT_INPUT';
+export const ADD_REVIEW = 'ADD_REVIEW';
 
 // fonctions (sections 1 2 3) qui fetch les recettes de l'api par 3 en fonctions des endpoint pour s'afficher dans le HomePage
 export const fetchRecipesSection1 = () => ({
@@ -67,7 +69,18 @@ export const addFavoriteRecipe = (idRecipe) => ({
   idRecipe
 });
 
+// supprime une recette des favoris
+export const removeFavoriteRecipe = (idRecipe) => ({
+  type: REMOVE_FAVORITE_RECIPE,
+  idRecipe
+});
+
+// fonction qui répond au onChange de l'input et récupère la nouvelle valeur rentrée par l'utilisateur
 export const changeCommentInput = (newValue) => ({
   type: CHANGE_COMMENT_INPUT,
   newValue
+});
+
+export const addReview = () => ({
+  type: ADD_REVIEW
 });

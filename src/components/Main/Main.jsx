@@ -16,11 +16,11 @@ const Main = () => {
 
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch(fetchRecipesSection1());
-    //     // dispatch(fetchRecipesSection2());
-    //     dispatch(fetchRecipesSection3());
-    // }, []);
+    useEffect(() => {
+        dispatch(fetchRecipesSection1());
+        // dispatch(fetchRecipesSection2());
+        dispatch(fetchRecipesSection3());
+    }, []);
 
 
     // console.log('RECIPE SECTION', section1);
@@ -28,16 +28,16 @@ const Main = () => {
     return (
         <div className='main'>
             <div className='section'>
-                <Category name={"Cocktails d'été"} icone={<i class="bi bi-cup-straw"></i>}/>
+                <Category name={"Cocktails d'été"} icone={<i className="bi bi-cup-straw"></i>}/>
                 <Articles articles={section1}/>
                 <WatchMore search={'cocktails'}/>
             </div>
             <div className='section'>
-                <Category name={"Les recettes les mieux notées"} icone={<i class="bi bi-star-fill"></i>}/>
+                <Category name={"Les recettes les mieux notées"} icone={<i className="bi bi-star-fill"></i>}/>
                 <Articles articles={section2}/>
             </div>
             <div className='section'>
-                <Category name={"Recettes d'été"} icone={<i class="bi bi-brightness-high-fill"></i>}/>
+                <Category name={"Recettes d'été"} icone={<i className="bi bi-brightness-high-fill"></i>}/>
                 <Articles articles={section3}/>
                 <WatchMore search={'summer'}/>
             </div>

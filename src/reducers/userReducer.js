@@ -29,13 +29,21 @@ const userReducer = (state = initialState, action = {}) => {
       };
 
     case HANDLE_SUCCESSFUL_LOGIN:
+
+      // ajout dans le local storage pour pouvoir récupérer les infos au rechargement de la page
+      localStorage.setItem('user', JSON.stringify({
+        nickname: action.nickname,
+        email: action.email,
+        token: action.token 
+      }));
+
+      
       return {
         ...state,
         logged: true,
         nickname: action.nickname,
         token: action.token,
-        email: '',
-        password: '',
+        email: action.email
       };
 
     case OPEN_LOGIN_FORM:
@@ -47,10 +55,13 @@ const userReducer = (state = initialState, action = {}) => {
     case CLOSE_LOGIN_FORM:
       return {
         ...state,
-        isLoginFormOpen: false
+        isLoginFormOpen: false,
+        errorConnexion: false
       };
 
     case LOGOUT:
+      localStorage.removeItem('user');
+
       return {
         ...state,
         logged: false,

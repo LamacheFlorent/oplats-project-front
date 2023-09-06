@@ -1,11 +1,11 @@
 import './TitleRecipe.scss';
 import Row from 'react-bootstrap/Row';
 
-const TitleRecipe = () => {
+const TitleRecipe = ({text}) => {
     return (
         <Row className='title'>
             <h1 className='title-recipe'>
-                Nom de la recette
+                {text}
             </h1>
         </Row>
     )

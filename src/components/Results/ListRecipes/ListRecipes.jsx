@@ -6,7 +6,7 @@ const ListRecipes = ({results}) => {
     return (
         <div className='list-recipes'>
             {results.map((result) => {
-                return (<Article key={result.id} img={result.image} title={result.title} />)
+                return (<Article key={result.id} img={result.image} title={result.title} idRecipe={result.id}/>)
             })}
         </div>
     )

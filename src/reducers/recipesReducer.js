@@ -36,7 +36,7 @@ const recipesReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         inputComment: action.newValue
-      }
+      };
 
     default:
       return state;

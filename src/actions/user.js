@@ -20,10 +20,12 @@ export const submitLogin = () => ({
   type: SUBMIT_LOGIN,
 });
 
-// fonction activée si l'authentification a réussi et récupère le pseudo et le token jwt de l'utilisateur connecté
-export const handleSuccessfulLogin = (nickname, token) => ({
+// fonction activée si l'authentification a réussi et récupère le pseudo, l'email et le token jwt de l'utilisateur connecté
+// elle ajoute également les informations dans le local storage
+export const handleSuccessfulLogin = (nickname, email, token) => ({
   type: HANDLE_SUCCESSFUL_LOGIN,
   nickname,
+  email,
   token,
 });
 
@@ -35,6 +37,7 @@ export const closeLoginForm = () => ({
   type: CLOSE_LOGIN_FORM
 });
 
+// on vide les informations de l'utilisateur connecté dans le local storage et dans les champs pour le déconnecter
 export const logOut = () => ({
   type: LOGOUT
 });

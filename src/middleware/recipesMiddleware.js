@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+
 import {
   FETCH_RECIPES_SECTION1,
   FETCH_RECIPES_SECTION2,
@@ -9,10 +9,13 @@ import {
   saveRecipes,
   FETCH_RECIPES_GENDER,
   ADD_FAVORITE_RECIPE,
+  REMOVE_FAVORITE_RECIPE,
+  ADD_REVIEW,
 } from '../actions/recipes';
 
 const APIkey = 'b7dc8a490af6435f8132de0a24dfcd71';
 const baseUrl = 'https://api.spoonacular.com/recipes/';
+const baseUrlBDD = 'http://benjaminp17-server.eddi.cloud/projet-7-generateur-plats-recettes-back/public/api';
 
 const nameSection1 = "cocktails";
 const nameSection2 = "salad";
@@ -24,7 +27,7 @@ const recipesMiddleware = (store) => (next) => (action) => {
       axios
         .get(`${baseUrl}complexSearch?query=${nameSection1}&number=3&apiKey=${APIkey}`)
         .then((response) => {
-          console.log(response.data.results);
+          // console.log(response.data.results);
           store.dispatch(saveRecipes(response.data.results, 'section1'));
         })
         .catch((error) => {
@@ -48,7 +51,7 @@ const recipesMiddleware = (store) => (next) => (action) => {
       axios
         .get(`${baseUrl}complexSearch?query=${nameSection3}&number=3&apiKey=${APIkey}`)
         .then((response) => {
-          console.log(response.data.results);
+          // console.log(response.data.results);
           store.dispatch(saveRecipes(response.data.results, 'section3'));
         })
         .catch((error) => {
@@ -60,7 +63,7 @@ const recipesMiddleware = (store) => (next) => (action) => {
       axios
         .get(`${baseUrl}complexSearch?query=${action.value}&number=100&apiKey=${APIkey}`)
         .then((response) => {
-          console.log(response.data.results);
+          // console.log(response.data.results);
           store.dispatch(saveRecipes(response.data.results, 'searchResults'));
         })
         .catch((error) => {
@@ -72,7 +75,7 @@ const recipesMiddleware = (store) => (next) => (action) => {
       axios
         .get(`${baseUrl}complexSearch?${action.gender}=${action.value}&number=100&apiKey=${APIkey}`)
         .then((response) => {
-          console.log(response.data.results);
+          // console.log(response.data.results);
           store.dispatch(saveRecipes(response.data.results, 'searchResults'));
         })
         .catch((error) => {
@@ -81,14 +84,15 @@ const recipesMiddleware = (store) => (next) => (action) => {
       break;
 
     // case FETCH_FAVORITE_RECIPES:
-    //   axios.get('',
-    //     {
-    //       header: {
-    //         // nom du header: valeur
-    //         Authorization: `Bearer ${store.getState().user.token}`,
-    //       },
-    //     }
-    //   )
+    //   axios
+    //     .get('/api/users/me/favorites',
+    //       {
+    //         header: {
+    //           // nom du header: valeur
+    //           Authorization: `Bearer ${store.getState().user.token}`,
+    //         },
+    //       }
+    //     )
     //     .then((response) => {
     //       // console.log(response);
     //       store.dispatch(saveFavoriteRecipes(response.data.favorites));
@@ -99,14 +103,48 @@ const recipesMiddleware = (store) => (next) => (action) => {
     //   break;
 
     // case ADD_FAVORITE_RECIPE:
-      // const { idRecipe } = action
-    //   axios.post('',
-    //     {
-    //       header: {
-    //         Authorization: `Bearer ${store.getState().user.token}`,
-    //       },
-    //     }
-    //   )
+    //   axios
+    //     .post(`/api/favorites/add/${action.idRecipe}`,
+    //       {
+    //         header: {
+    //           Authorization: `Bearer ${store.getState().user.token}`,
+    //         },
+    //       }
+    //     )
+    //     .then((response) => {
+    //       // console.log(response);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    //   break;
+
+    // case REMOVE_FAVORITE_RECIPE:
+    //   axios
+    //     .post(`/api/users/me/favorites/remove/${action.idRecipe}`,
+    //       {
+    //         header: {
+    //           Authorization: `Bearer ${store.getState().user.token}`,
+    //         },
+    //       }
+    //     )
+    //     .then((response) => {
+    //       // console.log(response);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    //   break;
+
+        // case ADD_REVIEW:
+    //   axios
+    //     .post(`/api/reviews/add`,
+    //       {
+    //         header: {
+    //           Authorization: `Bearer ${store.getState().user.token}`,
+    //         },
+    //       }
+    //     )
     //     .then((response) => {
     //       // console.log(response);
     //     })
