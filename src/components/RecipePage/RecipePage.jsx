@@ -1,5 +1,6 @@
 import './RecipePage.scss';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Details from './Details/Details';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -11,8 +12,6 @@ import TitleRecipe from './TitleRecipe/TitleRecipe';
 import BtnAdd from './BtnAdd/BtnAdd';
 import Reviews from './Reviews/Reviews';
 import axios from 'axios';
-
-import { useParams } from 'react-router-dom';
 
 const RecipePage = () => {
 
@@ -29,8 +28,6 @@ const RecipePage = () => {
     if(!recipe) {
         return;
     }
-
-    console.log(recipe)
     
     return (
         <Container fluid className='recipe-page'>

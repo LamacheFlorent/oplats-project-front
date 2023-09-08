@@ -23,21 +23,20 @@ const Main = () => {
     }, []);
 
 
-    // console.log('RECIPE SECTION', section1);
-
     return (
         <div className='main'>
             <div className='section'>
-                <Category name={"Cocktails d'été"} icone={<i className="bi bi-cup-straw"></i>}/>
+                <Category name={"Summer cocktails"} icone={<i className="bi bi-cup-straw"></i>}/>
                 <Articles articles={section1}/>
                 <WatchMore search={'cocktails'}/>
             </div>
             <div className='section'>
-                <Category name={"Les recettes les mieux notées"} icone={<i className="bi bi-star-fill"></i>}/>
+                <Category name={"Top rated recipes"} icone={<i className="bi bi-star-fill"></i>}/>
                 <Articles articles={section2}/>
+                <WatchMore />
             </div>
             <div className='section'>
-                <Category name={"Recettes d'été"} icone={<i className="bi bi-brightness-high-fill"></i>}/>
+                <Category name={"Summer recipes"} icone={<i className="bi bi-brightness-high-fill"></i>}/>
                 <Articles articles={section3}/>
                 <WatchMore search={'summer'}/>
             </div>

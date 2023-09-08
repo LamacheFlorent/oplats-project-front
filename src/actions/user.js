@@ -6,6 +6,7 @@ export const OPEN_LOGIN_FORM = 'OPEN_LOGIN_FORM';
 export const CLOSE_LOGIN_FORM = 'CLOSE_LOGIN_FORM';
 export const LOGOUT = 'LOGOUT';
 export const SUBMIT_REGISTER = 'SUBMIT_REGISTER';
+export const HANDLE_SUCCESSFUL_REGISTER = 'HANDLE_SUCCESSFUL_REGISTER';
 export const HANDLE_ERROR_REGISTER = 'HANDLE_ERROR_REGISTER';
 
 // fonction que l'on trouve dans onChange pour récupérer la valeur de l'input en précisant l'identifiant qu'elle attend
@@ -29,6 +30,12 @@ export const handleSuccessfulLogin = (nickname, email, token) => ({
   token,
 });
 
+// fonction qui gère si une erreur de connexion et vraie ou non selon certains critères d'authentification 
+export const handleErrorConnexion = (error) => ({
+  type: HANDLE_ERROR_CONNEXION,
+  error
+});
+
 export const openLoginForm = () => ({
   type: OPEN_LOGIN_FORM
 });
@@ -42,16 +49,15 @@ export const logOut = () => ({
   type: LOGOUT
 });
 
-// fonction qui gère si une erreur de connexion et vraie ou non selon certains critères d'authentification 
-export const handleErrorConnexion = (error) => ({
-  type: HANDLE_ERROR_CONNEXION,
-  error
-});
-
 // fonction qui envoie en post les informations de l'utilisateur à la bdd pour l'inscription
 export const submitRegister = () => ({
   type: SUBMIT_REGISTER
 });
+
+// fonction qui confirme la création de compte utilisateur
+export const handleSuccessfulRegister = () => ({
+  type: HANDLE_SUCCESSFUL_REGISTER
+})
 
 // fonction qui gère si une erreur de d'inscription et vraie ou non selon certains critères d'authentification
 export const handleErrorRegister = (error) => ({

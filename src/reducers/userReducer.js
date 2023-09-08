@@ -2,9 +2,10 @@ import {
   CHANGE_LOGIN_FIELD,
   HANDLE_SUCCESSFUL_LOGIN,
   OPEN_LOGIN_FORM,
-  LOGOUT,
   CLOSE_LOGIN_FORM,
+  LOGOUT,
   HANDLE_ERROR_CONNEXION,
+  HANDLE_SUCCESSFUL_REGISTER,
   HANDLE_ERROR_REGISTER
 } from '../actions/user';
 
@@ -76,6 +77,12 @@ const userReducer = (state = initialState, action = {}) => {
         ...state,
         errorConnexion: action.error
       };
+
+    case HANDLE_SUCCESSFUL_REGISTER:
+      return {
+        ...state,
+        isLoginFormOpen: true
+      }
 
     case HANDLE_ERROR_REGISTER:
       return {

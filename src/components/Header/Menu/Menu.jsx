@@ -10,11 +10,11 @@ const Menu = () => {
 
     return (
         <ul className='list-inline d-flex mb-0 menu'>
-            <Item name="Catégorie" elements={categories} params="type"/>
-            <Item name="Thémathique" elements={thematics} params="cuisine"/>
-            <Item name="Saison" elements={seasons} params="query"/>
-            <Item name="Régime" elements={diet} params="diet"/>
-            <Item name="Intolérance" elements={intelorances} params="intolerances"/>
+            <Item name="Category" elements={categories} params="type"/>
+            <Item name="Thematic" elements={thematics} params="cuisine"/>
+            <Item name="Season" elements={seasons} params="query"/>
+            <Item name="Diet" elements={diet} params="diet"/>
+            <Item name="Intolerance" elements={intelorances} params="intolerances"/>
         </ul>
     )
 };

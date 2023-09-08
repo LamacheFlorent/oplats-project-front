@@ -23,7 +23,7 @@ const BtnConnexion = () => {
     return (
         <Button variant="light" type="button" className='button-co' onClick={handleButtonClick}>
             <i className="bi bi-person-circle"></i>
-            <span>{isLogged ? `Bonjour ${nickname}` : 'Connexion'}</span>
+            <span>{isLogged ? `Welcome ${nickname}` : 'Sign In'}</span>
         </Button>
     )
 };

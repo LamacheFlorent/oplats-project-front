@@ -7,7 +7,7 @@ const Footer = () => {
         <footer className='footer'>
             <div className='link'>
                 <NavLink to="/contact">Contact</NavLink>
-                <NavLink to="/legals-mentions">Mentions légales</NavLink>
+                <NavLink to="/legals-mentions">Legal Notice</NavLink>
                 <NavLink to="/faq">F.A.Q</NavLink>
             </div>
             <NavLink to="https://github.com/orgs/O-Clock-Vanadium/teams/team-7-generateur-plats-recettes/repositories">

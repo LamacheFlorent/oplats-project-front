@@ -13,7 +13,7 @@ const InputSearch = () => {
     return (
         <div className="d-flex justify-content-center search">
             <form className="input-group mb-4" onSubmit={(event) => {event.preventDefault(); navigate(`/results/${search}`);}}>
-                <input type="text" className="form-control input-search" placeholder="Rechercher une recette, une boisson, ..." aria-describedby="button-addon2" 
+                <input type="text" className="form-control input-search" placeholder="Search for a recipe, a drink, ..." aria-describedby="button-addon2" 
                     onChange={(event) => dispatch(changeSearchInput(event.target.value))}
                 />
                 <button className="btn btn-outline-secondary" type="submit" id="button-addon2"><i className="bi bi-search"></i></button>

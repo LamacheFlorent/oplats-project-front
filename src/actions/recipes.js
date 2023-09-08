@@ -39,7 +39,7 @@ export const fetchRecipesGender = (gender, value) => ({
   value
 });
 
-// fonction qui récupère les recettes (response.data.results) après le fetch selon un identifiant (appelée dans les fonctions fetch)
+// fonction qui récupère les recettes (response.data.results) après le fetch selon un identifiant (appelé dans les fonctions fetch)
 export const saveRecipes = (recipes, identifier) => ({
   type: SAVE_RECIPES,
   recipes,

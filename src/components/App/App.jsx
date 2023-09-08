@@ -11,6 +11,7 @@ import Register from '../Register/Register';
 import SearchResults from '../SearchResults/SearchResults';
 import GenderResults from '../GenderResults/GenderResults';
 import RecipePage from '../RecipePage/RecipePage';
+import { fetchFavoriteRecipes } from '../../actions/recipes';
 
 import { Route, Routes } from 'react-router-dom';
 import { useSelector, useDispatch} from 'react-redux';
@@ -25,16 +26,16 @@ const App = () => {
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
-
         // condition de sécurité s'il n'y a pas d'utilisateur connecté
         if(!user) {
             return;
         } 
-
         dispatch(handleSuccessfulLogin(
             user.nickname, 
             user.email, 
             user.token));
+
+        dispatch(fetchFavoriteRecipes())
     }, []);
 
     return (

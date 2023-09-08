@@ -5,7 +5,7 @@ const WatchMore = ({ search }) => {
 
     return (
         <div className='watch-more'>
-            <Link className='link-more' to={`/results/${search}`}>Voir plus
+            <Link className='link-more' to={`/results/${search}`}>Watch more
             <button type='button' className='button-more'>
                 <i className="bi bi-arrow-right-circle"></i>
             </button>

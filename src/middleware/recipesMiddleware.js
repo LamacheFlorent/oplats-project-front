@@ -72,17 +72,35 @@ const recipesMiddleware = (store) => (next) => (action) => {
     //     });
     //   break;
 
-    // case FETCH_RECIPES_GENDER:
-    //   axios
-    //     .get(`${baseUrl}complexSearch?${action.gender}=${action.value}&number=100&apiKey=${APIkey}`)
-    //     .then((response) => {
-    //       // console.log(response.data.results);
-    //       store.dispatch(saveRecipes(response.data.results, 'searchResults'));
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    //   break;
+    case FETCH_RECIPES_GENDER:
+      axios
+        .get(`${baseUrl}complexSearch?${action.gender}=${action.value}&number=100&apiKey=${APIkey}`)
+        .then((response) => {
+          // console.log(response.data.results);
+          store.dispatch(saveRecipes(response.data.results, 'searchResults'));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+
+      case ADD_FAVORITE_RECIPE:
+        axios
+          .get(`${baseUrlBDD}/favorites/add/${action.idRecipe}`,
+            {
+              headers: {
+                Authorization: `Bearer ${store.getState().user.token}`,
+              },
+            }
+          )
+          .then((response) => {
+            console.log('Requête réussie ', response);
+          })
+          .catch((error) => {
+            console.log(error);
+            // console.log(store.getState().user.token)
+          });
+        break;
 
     case FETCH_FAVORITE_RECIPES:
       axios
@@ -94,7 +112,7 @@ const recipesMiddleware = (store) => (next) => (action) => {
           }
         )
         .then((response) => {
-          console.log(response.data);
+          console.log('Liste des favoris bien récupéré', response.data);
           store.dispatch(saveFavoriteRecipes(response.data));
         })
         .catch((error) => {
@@ -102,9 +120,9 @@ const recipesMiddleware = (store) => (next) => (action) => {
         });
       break;
 
-    case ADD_FAVORITE_RECIPE:
+    case REMOVE_FAVORITE_RECIPE:
       axios
-        .get(`${baseUrlBDD}/favorites/add/${action.idRecipe}`,
+        .delete(`${baseUrlBDD}/users/me/favorites/remove/${action.idRecipe}`,
           {
             headers: {
               Authorization: `Bearer ${store.getState().user.token}`,
@@ -112,30 +130,12 @@ const recipesMiddleware = (store) => (next) => (action) => {
           }
         )
         .then((response) => {
-          console.log('Requête réussie ', response);
+          // console.log(response);
         })
         .catch((error) => {
           console.log(error);
-          // console.log(store.getState().user.token)
         });
       break;
-
-    // case REMOVE_FAVORITE_RECIPE:
-    //   axios
-    //     .post(`/api/users/me/favorites/remove/${action.idRecipe}`,
-    //       {
-    //         header: {
-    //           Authorization: `Bearer ${store.getState().user.token}`,
-    //         },
-    //       }
-    //     )
-    //     .then((response) => {
-    //       // console.log(response);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    //   break;
 
         // case ADD_REVIEW:
     //   axios

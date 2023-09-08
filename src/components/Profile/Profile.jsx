@@ -12,13 +12,13 @@ const Profile = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        dispatch(fetchFavoriteRecipes())
-    }, [])
+    // useEffect(() => {
+    //     dispatch(fetchFavoriteRecipes())
+    // }, [])
 
     return (
         <div className='profile-page'>
-            <h1>Mon Profil</h1>
+            <h1>My Profile</h1>
             <Informations />
             <Button className='logout' variant="success" onClick={() => {dispatch(logOut()); navigate('/')}}>Deconnexion</Button>
             <Favorites />

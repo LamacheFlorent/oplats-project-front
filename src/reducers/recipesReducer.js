@@ -1,4 +1,4 @@
-import { CHANGE_SEARCH_INPUT, SAVE_RECIPES, SAVE_FAVORITE_RECIPES, CHANGE_COMMENT_INPUT } from '../actions/recipes';
+import { CHANGE_SEARCH_INPUT, SAVE_RECIPES, SAVE_FAVORITE_RECIPES, CHANGE_COMMENT_INPUT, ADD_FAVORITE_RECIPE } from '../actions/recipes';
 
 export const initialState = {
   inputSearch: '',
@@ -9,6 +9,7 @@ export const initialState = {
   isRecipesLoaded: false,
   favoritesBDD: [],
   inputComment: '',
+  addedInFavorites: false,
 };
 
 const recipesReducer = (state = initialState, action = {}) => {
