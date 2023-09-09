@@ -5,7 +5,7 @@ const List = ({ list }) => {
     return (
         <div className='fav-list'>
             {list && list.map((item, index) =>
-                <Article key={index} img={item.image} title={item.title} />
+                <Article key={index} img={item.image} title={item.title} idRecipe={item.id}/>
             )}
         </div>
     )

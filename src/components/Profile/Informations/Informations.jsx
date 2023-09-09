@@ -13,7 +13,7 @@ const Informations = () => {
     return (
         <div className='infos'>
             <div>
-                <span className='label'>Pseudo : </span>
+                <span className='label'>Username : </span>
                 <span className='info'>{nickname}</span>
             </div>
             <div>

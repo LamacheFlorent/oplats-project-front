@@ -39,7 +39,7 @@ const RecipePage = () => {
                 <Ingredients ingredients={recipe.extendedIngredients}/>
                 <Prepare steps={recipe.analyzedInstructions[0].steps}/>
             </Row>
-            <Reviews />
+            <Reviews codeApi={idRecipe}/>
         </Container>
     )
 };

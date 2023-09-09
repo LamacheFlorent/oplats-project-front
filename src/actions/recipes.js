@@ -11,6 +11,9 @@ export const ADD_FAVORITE_RECIPE = 'ADD_FAVORITE_RECIPE';
 export const REMOVE_FAVORITE_RECIPE = 'REMOVE_FAVORITE_RECIPE';
 export const CHANGE_COMMENT_INPUT = 'CHANGE_COMMENT_INPUT';
 export const ADD_REVIEW = 'ADD_REVIEW';
+export const FETCH_REVIEWS = 'FETCH_REVIEWS';
+export const SAVE_REVIEWS = 'SAVE_REVIEWS';
+export const CHANGE_VALUE_RATE = 'CHANGE_VALUE_RATE';
 
 // fonctions (sections 1 2 3) qui fetch les recettes de l'api par 3 en fonctions des endpoint pour s'afficher dans le HomePage
 export const fetchRecipesSection1 = () => ({
@@ -57,7 +60,7 @@ export const fetchFavoriteRecipes = () => ({
   type: FETCH_FAVORITE_RECIPES,
 });
 
-// fonction qui récupère les recettes favotites de l'utilisateur connecté par son code api (id de la recette)
+// fonction qui récupère les recettes favorites de l'utilisateur connecté par son code api (id de la recette)
 export const saveFavoriteRecipes = (favoriteRecipes) => ({
   type: SAVE_FAVORITE_RECIPES,
   favoriteRecipes
@@ -81,6 +84,26 @@ export const changeCommentInput = (newValue) => ({
   newValue
 });
 
-export const addReview = () => ({
-  type: ADD_REVIEW
+// fonction qui ajoute une critique et l'envoie au back
+export const addReview = (comment, rate, idRecipe) => ({
+  type: ADD_REVIEW,
+  comment,
+  rate,
+  idRecipe
+});
+
+// fonction qui récupère toutes les critiques de la recette
+export const fetchReviews = (idRecipe) => ({
+  type: FETCH_REVIEWS,
+  idRecipe
+});
+
+export const saveReviews = (listReviews) => ({
+  type: SAVE_REVIEWS,
+  listReviews
+});
+
+export const changeValueRate = (valueRate) => ({
+  type: CHANGE_VALUE_RATE,
+  valueRate
 });

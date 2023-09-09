@@ -10,36 +10,26 @@ const Favorites = () => {
     // tableau vide qui sera rempli par les data de l'api spoonacular après le fetch
     const [listFavoritesAPI, setListFavoritesAPI] = useState([]);
 
+    // à partir d'un tableau d'objet
+    // on créé un nouveau tableau ou l'on ne stock que le codeApi de chaque recette ex [34503, 343434, 34342]
+    // on join pour créer une chaine de caractère avec les codeApi séparés par des virgules
+    const ids = listFavoritesBDD.map((item) => item.codeApi).join(',');
+
     useEffect(() => {
-        Promise.all(
-            listFavoritesBDD.map((item) =>
-                axios
-                    .get(`https://api.spoonacular.com/recipes/${item.codeApi}/information?includeNutrition=false&apiKey=b7dc8a490af6435f8132de0a24dfcd71`)
-                    .then((response) => {
-                        console.log(response.data);
-                        return response.data
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                        return null;
-                    })
-            )
-        )
-            .then((favoriteRecipes) => {
-                // on filtre les éléments null dans un nouveau tableau
-                const filteredRecipes = favoriteRecipes.filter(recipe => recipe !== null);
-                setListFavoritesAPI(filteredRecipes);
+        axios
+            // endpoint en masse (pas la masse des ingrédients) masse pour Bulk
+            .get(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids}&apiKey=b7dc8a490af6435f8132de0a24dfcd71`)
+            .then((response) => {
+                setListFavoritesAPI(response.data);
             })
             .catch((error) => {
                 console.log(error);
             });
     }, [listFavoritesBDD])
 
-    // console.log(listFavoritesAPI)
-
     return (
         <div className='fav'>
-            <h1>Mes recettes favorites</h1>
+            <h1>My favorites recipes</h1>
             <List list={listFavoritesAPI} />
         </div>
     )

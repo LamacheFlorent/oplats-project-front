@@ -4,11 +4,9 @@ import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavoriteRecipe, removeFavoriteRecipe } from '../../../actions/recipes';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const BtnAdd = ({ codeRecipe }) => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const favoritesBDD = useSelector((state) => state.recipes.favoritesBDD)
     const [idAddedInFav, setIdAddedInFav] = useState(false);
 
@@ -23,7 +21,7 @@ const BtnAdd = ({ codeRecipe }) => {
     if (idAddedInFav === true) {
         return (
             <Row className='remove'>
-                <Button className='btn-remove' variant="danger" onClick={() => { dispatch(removeFavoriteRecipe(codeRecipe)); navigate(`/recipe/${codeRecipe}`); }}>
+                <Button className='btn-remove' variant="danger" onClick={() => { dispatch(removeFavoriteRecipe(codeRecipe)); }}>
                     <i className="bi bi-x-lg"></i>
                     <span>Remove</span>
                 </Button>
@@ -33,7 +31,7 @@ const BtnAdd = ({ codeRecipe }) => {
 
     return (
         <Row className='add'>
-            <Button className='btn-add' variant="succes" onClick={() => { dispatch(addFavoriteRecipe(codeRecipe)); navigate(`/recipe/${codeRecipe}`); }}>
+            <Button className='btn-add' variant="succes" onClick={() => { dispatch(addFavoriteRecipe(codeRecipe)); }}>
                 <i className="bi bi-suit-heart"></i>
                 <span>Add</span>
             </Button>

@@ -12,6 +12,10 @@ import {
   ADD_FAVORITE_RECIPE,
   REMOVE_FAVORITE_RECIPE,
   ADD_REVIEW,
+  fetchFavoriteRecipes,
+  FETCH_REVIEWS,
+  saveReviews,
+  fetchReviews
 } from '../actions/recipes';
 
 const APIkey = 'b7dc8a490af6435f8132de0a24dfcd71';
@@ -84,23 +88,24 @@ const recipesMiddleware = (store) => (next) => (action) => {
         });
       break;
 
-      case ADD_FAVORITE_RECIPE:
-        axios
-          .get(`${baseUrlBDD}/favorites/add/${action.idRecipe}`,
-            {
-              headers: {
-                Authorization: `Bearer ${store.getState().user.token}`,
-              },
-            }
-          )
-          .then((response) => {
-            console.log('Requête réussie ', response);
-          })
-          .catch((error) => {
-            console.log(error);
-            // console.log(store.getState().user.token)
-          });
-        break;
+    case ADD_FAVORITE_RECIPE:
+      axios
+        .get(`${baseUrlBDD}/favorites/add/${action.idRecipe}`,
+          {
+            headers: {
+              Authorization: `Bearer ${store.getState().user.token}`,
+            },
+          }
+        )
+        .then((response) => {
+          // console.log('Ajout en favoris réussi ', response);
+          store.dispatch(fetchFavoriteRecipes());
+        })
+        .catch((error) => {
+          console.log(error);
+          // console.log(store.getState().user.token)
+        });
+      break;
 
     case FETCH_FAVORITE_RECIPES:
       axios
@@ -112,7 +117,7 @@ const recipesMiddleware = (store) => (next) => (action) => {
           }
         )
         .then((response) => {
-          console.log('Liste des favoris bien récupéré', response.data);
+          // console.log('Liste des favoris bien récupéré', response.data);
           store.dispatch(saveFavoriteRecipes(response.data));
         })
         .catch((error) => {
@@ -130,24 +135,43 @@ const recipesMiddleware = (store) => (next) => (action) => {
           }
         )
         .then((response) => {
-          // console.log(response);
+          // console.log('La recette a bien été supprimée', response);
+          store.dispatch(fetchFavoriteRecipes());
         })
         .catch((error) => {
           console.log(error);
         });
       break;
 
-        // case ADD_REVIEW:
+    case ADD_REVIEW:
+      axios
+        .post(`${baseUrlBDD}/reviews/add`,
+          {
+            comment: store.getState().recipes.inputComment,
+            note: parseInt(store.getState().recipes.valueRate, 10),
+            code_api: action.idRecipe
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${store.getState().user.token}`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log('Review bien ajoutée', response);
+          store.dispatch(fetchReviews(action.idRecipe))
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+
+    // case FETCH_REVIEWS:
     //   axios
-    //     .post(`/api/reviews/add`,
-    //       {
-    //         header: {
-    //           Authorization: `Bearer ${store.getState().user.token}`,
-    //         },
-    //       }
-    //     )
+    //     .get(`${baseUrlBDD}/reviews/${action.idRecipe}`)
     //     .then((response) => {
-    //       // console.log(response);
+    //       console.log('Récupération des reviews OK', response);
+    //       store.dispatch(saveReviews(response));
     //     })
     //     .catch((error) => {
     //       console.log(error);
