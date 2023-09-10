@@ -28,17 +28,17 @@ const nameSection3 = "summer";
 
 const recipesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    // case FETCH_RECIPES_SECTION1:
-    //   axios
-    //     .get(`${baseUrl}complexSearch?query=${nameSection1}&number=3&apiKey=${APIkey}`)
-    //     .then((response) => {
-    //       // console.log(response.data.results);
-    //       store.dispatch(saveRecipes(response.data.results, 'section1'));
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    //   break;
+    case FETCH_RECIPES_SECTION1:
+      axios
+        .get(`${baseUrl}complexSearch?query=${nameSection1}&number=3&apiKey=${APIkey}`)
+        .then((response) => {
+          // console.log(response.data.results);
+          store.dispatch(saveRecipes(response.data.results, 'section1'));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
 
     // case FETCH_RECIPES_SECTION2:
     //   axios
@@ -64,17 +64,17 @@ const recipesMiddleware = (store) => (next) => (action) => {
     //     });
     //   break;
 
-    // case FETCH_RECIPES_SEARCH:
-    //   axios
-    //     .get(`${baseUrl}complexSearch?query=${action.value}&number=100&apiKey=${APIkey}`)
-    //     .then((response) => {
-    //       // console.log(response.data.results);
-    //       store.dispatch(saveRecipes(response.data.results, 'searchResults'));
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    //   break;
+    case FETCH_RECIPES_SEARCH:
+      axios
+        .get(`${baseUrl}complexSearch?query=${action.value}&number=100&apiKey=${APIkey}`)
+        .then((response) => {
+          // console.log(response.data.results);
+          store.dispatch(saveRecipes(response.data.results, 'searchResults'));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
 
     case FETCH_RECIPES_GENDER:
       axios

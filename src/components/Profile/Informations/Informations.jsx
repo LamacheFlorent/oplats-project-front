@@ -2,8 +2,6 @@ import './Informations.scss';
 import { useSelector } from 'react-redux';
 
 const Informations = () => {
-    // const email = useSelector((state) => state.user.email);
-    // const nickname = useSelector((state) => state.user.nickname);
 
     // rechercher les données de l'utilisateur dans le localStorage
     const user = JSON.parse(localStorage.getItem("user"));

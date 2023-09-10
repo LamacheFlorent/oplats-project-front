@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const Footer = () => {
     return (
         <footer className='footer'>
-            <div className='link'>
+            <div className='links'>
                 <NavLink to="/contact">Contact</NavLink>
                 <NavLink to="/legals-mentions">Legal Notice</NavLink>
                 <NavLink to="/faq">F.A.Q</NavLink>

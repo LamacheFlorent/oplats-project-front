@@ -12,7 +12,7 @@ const Profile = () => {
 
     return (
         <div className='profile-page'>
-            <h1>My Profile</h1>
+            <h2>My Profile</h2>
             <Informations />
             <Button className='logout' variant="success" onClick={() => {dispatch(logOut()); navigate('/')}}>Log Out</Button>
             <Favorites />

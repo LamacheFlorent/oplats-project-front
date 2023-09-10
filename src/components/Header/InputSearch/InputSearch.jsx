@@ -2,13 +2,11 @@ import './InputSearch.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { changeSearchInput, fetchRecipesSearch } from '../../../actions/recipes';
-import { useParams } from 'react-router-dom';
 
 const InputSearch = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const search = useSelector((state) => state.recipes.inputSearch);
-    const {slug} = useParams();
 
     return (
         <div className="d-flex justify-content-center search">

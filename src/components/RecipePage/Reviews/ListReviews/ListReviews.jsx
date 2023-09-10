@@ -17,15 +17,15 @@ const ListReviews = ({codeApi}) => {
 
     return (
         <ul className='list-reviews'>
-            {listReviews.map((review, index) => {
-                return (
-                    <li className='review' key={index}>
-                        <span id='nickname'>Pseudo 1 {review.nickname}</span>
-                        <span id='rate'>{review.rate}/5</span>
-                        <p id='comment'>{review.comment}</p>
+            {/* {listReviews.map((review, index) => { */}
+                {/* return ( */}
+                    <li className='review'>
+                        <span id='nickname'>Florent L</span>
+                        <span id='rate'>5/5</span>
+                        <p id='comment'>Very good !</p>
                     </li>
-                )
-            })}
+                {/* ) */}
+            {/* })} */}
         </ul>
     )
 };

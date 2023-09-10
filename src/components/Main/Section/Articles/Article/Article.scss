@@ -67,3 +67,12 @@
   color: #2c2b2bd0;
   line-height: 1.4;
 }
+
+@media (max-width: 480px) {
+
+  .card {
+    width: 150px;
+    height: 150px;
+  }
+
+}

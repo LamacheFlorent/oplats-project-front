@@ -5,17 +5,39 @@
     flex-direction: column;
     gap: 5em;
     margin: 0 0 5em 0;
-    // background-image: url(../../assets/img/Fond.png);
+
+    .first-row {
+        padding: 0;
+        background-color: v.$firstColor;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10em;
+    }
+
+    .menu-burger {
+        display: none;
+    }
 }
 
-.first-row {
-    padding: 0;
-    background-color: v.$firstColor;
-    display: flex;
-    align-items: center;
+@media (max-width: 480px) {
+    .header {
 
-    .col {
-        display: flex;
-        justify-content: center;
+        .first-row {
+            gap: 7em;
+
+            ul {
+                display: none !important;
+            }
+
+            .menu-burger {
+                display: flex;
+
+                i {
+                    font-size: 40px;
+                }
+            }
+        }
+
     }
 }

@@ -29,7 +29,7 @@ const Favorites = () => {
 
     return (
         <div className='fav'>
-            <h1>My favorites recipes</h1>
+            <h2>My favorites recipes</h2>
             <List list={listFavoritesAPI} />
         </div>
     )

@@ -1,15 +1,21 @@
 .button-co{
     border-radius: 30px !important;
-    color: white;
-    border: solid 1px white;
-    background-color: white;
     
-    span {
+    span, .bi {
         color: orangered;
     }
 
     .bi {
         margin-right: 10px;
-        color: orangered;
+    }
+}
+
+@media (max-width: 480px) {
+    span {
+        display: none;
+    }
+
+    .bi {
+        margin: 0 !important;
     }
 }

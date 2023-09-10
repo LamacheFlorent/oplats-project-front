@@ -18,7 +18,7 @@ const Main = () => {
 
     useEffect(() => {
         dispatch(fetchRecipesSection1());
-        // dispatch(fetchRecipesSection2());
+        dispatch(fetchRecipesSection2());
         dispatch(fetchRecipesSection3());
     }, []);
 
@@ -31,7 +31,7 @@ const Main = () => {
                 <WatchMore search={'cocktails'}/>
             </div>
             <div className='section'>
-                <Category name={"Top rated recipes"} icone={<i className="bi bi-star-fill"></i>}/>
+                <Category name={"Fresh salads"} icone={<i className="bi bi-star-fill"></i>}/>
                 <Articles articles={section2}/>
                 <WatchMore />
             </div>

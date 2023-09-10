@@ -8,7 +8,6 @@ import Loader from '../Loader/Loader';
 const SearchResults = () => {
   const params = useParams();
   const dispatch = useDispatch();
-  const isRecipesLoaded = useSelector((state) => state.recipes.isRecipesLoaded);
 
   useEffect(() => {
     dispatch(fetchRecipesSearch(params.slug));

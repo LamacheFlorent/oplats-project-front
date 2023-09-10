@@ -2,7 +2,7 @@
     position: fixed;
     left: 35%;
     top: 20%;
-    z-index: 1;
+    z-index: 1000;
     width: 30em;
     height: 25em;
 
@@ -88,4 +88,13 @@
         top: 5px;
     }
 
+}
+
+@media (max-width: 480px) {
+
+    .sign-in {
+        left: 8%;
+        width: 25em;
+        height: 25em;
+    }
 }
