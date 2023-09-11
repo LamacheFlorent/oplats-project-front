@@ -8,11 +8,7 @@
 <h4>Etape 1 : Installation des dépendances :open_file_folder:</h4>
 
 - React Vite
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 6767db014a6b1c385f81ebfc4068dc663224548d
 - React Router Dom
 
 - React Redux
@@ -78,8 +74,4 @@ Les composants parents principaux sont :
 
 - Meilleur performances
 
-<<<<<<< HEAD
-- Test finaux
-=======
-- Test finaux
->>>>>>> 6767db014a6b1c385f81ebfc4068dc663224548d
+
