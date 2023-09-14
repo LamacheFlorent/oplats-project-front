@@ -20,7 +20,7 @@ import {
 
 const APIkey = 'b7dc8a490af6435f8132de0a24dfcd71';
 const baseUrl = 'https://api.spoonacular.com/recipes/';
-const baseUrlBDD = 'http://benjaminp17-server.eddi.cloud/projet-7-generateur-plats-recettes-back/public/api';
+const baseUrlBDD = 'http://lamacheflorent-server.eddi.cloud/projet-7-generateur-plats-recettes-back/public/';
 
 const nameSection1 = "cocktails";
 const nameSection2 = "salad";

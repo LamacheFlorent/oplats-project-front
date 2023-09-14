@@ -2,7 +2,7 @@ import axios from 'axios';
 import { SUBMIT_LOGIN, SUBMIT_REGISTER, handleErrorConnexion, handleSuccessfulLogin, handleSuccessfulRegister, handleErrorRegister } from '../actions/user';
 import { fetchFavoriteRecipes } from '../actions/recipes';
 
-const baseUrl = 'http://benjaminp17-server.eddi.cloud/projet-7-generateur-plats-recettes-back/public/api';
+const baseUrl = 'http://lamacheflorent-server.eddi.cloud/projet-7-generateur-plats-recettes-back/public/';
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
