@@ -5,7 +5,7 @@
 
 
 
-<h4>Etape 1 : Installation des dépendances :open_file_folder:</h4>
+<h4>Etape 1 : Installation des dépendances :open_file_folder: </h4>
 
 - React Vite
 <<<<<<< HEAD
